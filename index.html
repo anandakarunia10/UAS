@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Pribadi</title>
+  <style>
+    /* Header */
+    header {
+      background: url('-to my profile-.jpg') center center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      color: black;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: clamp(2.5rem, 5vw, 4rem); /* responsif */
+      color: black;
+      text-shadow: none;
+    }
+
+    /* Sidebar navigasi */
+    aside {
+      flex: 1;
+      background: #f0f0f0;
+      padding: 30px 15px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 180px;
+      height: fit-content;
+    }
+    aside h3 {
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-size: 1.15em;
+      color: #555;
+      letter-spacing: 1px;
+    }
+    aside nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+    aside nav ul li {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    aside nav ul li a {
+      display: block;
+      color: #333;
+      font-weight: bold;
+      font-size: 1.1em;
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+      width: 100%;
+    }
+    aside nav ul li a:hover,
+    aside nav ul li a.active {
+      background: #e0e0e0;
+      color: #000;
+    }
+
+    /* Layout container */
+    .container {
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    main {
+      flex: 3;
+      padding: 15px;
+      background: #fafafa;
+      border-radius: 5px;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    /* Profil */
+    #profil {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    #profil img {
+      display: block;
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #profil p {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      max-width: 900px;
+      line-height: 1.8;
+      color: #333;
+      text-align: justify;
+      padding: 0 20px;
+    }
+
+    /* Riwayat Pendidikan */
+    #pendidikan {
+      margin-top: 40px;
+    }
+    .pendidikan-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+    .pendidikan-item {
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      flex: 1 1 220px;
+      max-width: 250px;
+      text-align: center;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+    .pendidikan-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .pendidikan-item p a {
+      font-size: 1.1em;
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .pendidikan-item p a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hobi */
+    #hobi {
+      padding: 10px 0;
+    }
+    .hobi-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+    .hobi-item {
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      flex: 1 1 220px;
+      max-width: 250px;
+      text-align: center;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+    .hobi-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .hobi-item p {
+      font-size: 1.1em;
+      color: #333;
+      line-height: 1.4;
+      margin: 0 0 10px 0;
+    }
+    .hobi-item a {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .hobi-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      aside {
+        min-width: auto;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      main {
+        width: 100%;
+      }
+      .hobi-container,
+      .pendidikan-container {
+        justify-content: center;
+      }
+      #profil p {
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Website Gede Ananda</h1>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside>
+      <h3>Menu</h3>
+      <nav>
+        <ul>
+          <li><a href="#profil">Profil</a></li>
+          <li><a href="#hobi">Hobi</a></li>
+          <li><a href="#pendidikan">Riwayat Pendidikan</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Konten utama -->
+    <main>
+      <article id="profil">
+        <h2>Profil Pribadi</h2>
+        <img src="NANDA.png" alt="Foto Profil Gede Ananda" />
+        <p>
+          Nama saya Gede Ananda Karunia Putra, lahir pada tanggal 14 Juli 2006, dan saat ini tinggal di Singaraja, Buleleng, Bali. Saya sedang menempuh pendidikan di Universitas Pendidikan Ganesha dengan program studi Teknologi Rekayasa Perangkat Lunak, dan kini berada di semester 2. Website ini adalah hasil karya saya sendiri sebagai bagian dari proses belajar dan pengembangan diri di dunia digital. Sebagai mahasiswa yang masih terus belajar, saya ingin menjadikan website ini sebagai media untuk mengenalkan diri, membagikan hal-hal yang saya pelajari, serta menjadi tempat berkembang seiring bertambahnya pengetahuan dan pengalaman di bidang yang saya tekuni.
+        </p>
+      </article>
+
+      <section id="hobi">
+        <h2>Hobi</h2>
+        <div class="hobi-container">
+          <div class="hobi-item">
+            <img src="SEPEDA.jpg" alt="Sepeda" />
+            <p><strong>Sepeda</strong><br>Ini merupakan kegiatan yang saya lakukan disaat hari libur, dikarenakan olahraga juga penting untuk menjaga kesehatan salah satunya bersepeda.</p>
+            <p><a href="https://videy.co/v/?id=VwxU34yC1" target="_blank" rel="noopener noreferrer">Tonton video bersepeda</a></p>
+          </div>
+          <div class="hobi-item">
+            <img src="FOTOGRAFI.jpg" alt="Fotografi" />
+            <p><strong>Fotografi</strong><br>Spesifik dalam fotografi ini dalam mengambil gambar matahari terbenam (sunset) dilakukan bersama teman-teman.</p>
+          </div>
+          <div class="hobi-item">
+            <img src="MUSIK.jpg" alt="Mendengarkan Musik" />
+            <p><strong>Mendengarkan Musik</strong><br>Memberikan suasana dalam melakukan sesuatu tergantung genre musik yang didengarkan.</p>
+            <p><a href="https://www.youtube.com/watch?v=-mwsPoerFWU" target="_blank" rel="noopener noreferrer">Dengarkan musik favorit saya</a></p>
+          </div>
+          <div class="hobi-item">
+            <img src="GAME.jpg" alt="Bermain Game" />
+            <p><strong>Bermain Game</strong><br>Saya lakukan di waktu senggang, hobi yang paling saya sukai.</p>
+            <p><a href="https://www.tiktok.com/@twenty1vandals/video/7472277796136488197" target="_blank" rel="noopener noreferrer">Tonton video bermain game</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="pendidikan">
+        <h2>Riwayat Pendidikan</h2>
+        <div class="pendidikan-container">
+          <div class="pendidikan-item">
+            <a href="https://maps.app.goo.gl/9sPNQpkrNjGKLPCh9" target="_blank"><img src="TK.jpg" alt="TK" /></a>
+            <p><a href="https://maps.app.goo.gl/9sPNQpkrNjGKLPCh9" target="_blank">TK Aura Sukma Insani</a></p>
+          </div>
+          <div class="pendidikan-item">
+            <a href="https://maps.app.goo.gl/DWu6SnnjXUpRSWGQ6" target="_blank"><img src="SD.jpg" alt="SD" /></a>
+            <p><a href="https://maps.app.goo.gl/DWu6SnnjXUpRSWGQ6" target="_blank">SD Negeri 1 Banyuasri</a></p>
+          </div>
+          <div class="pendidikan-item">
+            <a href="https://maps.app.goo.gl/qmexAmfHbnGD8rpt9" target="_blank"><img src="SMP.jpg" alt="SMP" /></a>
+            <p><a href="https://maps.app.goo.gl/qmexAmfHbnGD8rpt9" target="_blank">SMP Negeri 1 Singaraja</a></p>
+          </div>
+          <div class="pendidikan-item">
+            <a href="https://maps.app.goo.gl/nBp9EWCzsjLAvniZ6" target="_blank"><img src="SMA.jpg" alt="SMA" /></a>
+            <p><a href="https://maps.app.goo.gl/nBp9EWCzsjLAvniZ6" target="_blank">SMA Negeri 1 Singaraja</a></p>
+          </div>
+          <div class="pendidikan-item">
+            <a href="https://maps.app.goo.gl/F2qujFnS6dKchvTR9" target="_blank"><img src="UNDIKSHA.jpg" alt="Universitas" /></a>
+            <p><a href="https://maps.app.goo.gl/F2qujFnS6dKchvTR9" target="_blank">Universitas Pendidikan Ganesha</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer id="kontak">
+    <p>Kontak: <a href="mailto:gedeananda18@email.com">gedeananda18@email.com</a> | Telp: 0823-5941-0028</p>
+    <p>
+      <a href="https://instagram.com/gdananda_">Instagram</a> |
+      <a href="https://www.facebook.com/nando.pratama.77920">Facebook</a>
+    </p>
+    <p>&copy; 2025 Gede Ananda Karunia Putra</p>
+  </footer>
+</body>
+</html>
